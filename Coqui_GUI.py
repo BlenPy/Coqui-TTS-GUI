@@ -180,19 +180,19 @@ model_combobox.place(x=350, y=360, width=200, height=30)
 
 # File name entry
 label_filename = Label(master=root, text="File Name", fg="#FFFFFF", font=("Arial", 18))
-label_filename.place(x=5, y=603, width=100, height=20)
+label_filename.place(x=5, y=403, width=100, height=20)
 file_name_entry = tk.Entry(root, width=20)
-file_name_entry.place(x=120, y=600, width=150, height=30)
+file_name_entry.place(x=120, y=400, width=150, height=30)
 
 # Output path entry
 label_output_path = Label(master=root, text="Output Path", fg="#FFFFFF", font=("Arial", 18))
-label_output_path.place(x=5, y=633, width=100, height=20)
+label_output_path.place(x=5, y=333, width=100, height=20)
 output_path_entry = tk.Entry(root, width=70)
-output_path_entry.place(x=120, y=630, width=430, height=30)
+output_path_entry.place(x=120, y=430, width=430, height=30)
 
 # Browse button
 browse_button = tk.Button(root, text="Browse", command=select_output_path)
-browse_button.place(x=560, y=630, width=70, height=30)
+browse_button.place(x=560, y=430, width=70, height=30)
 
 # Generate button
 generate_button = tk.Button(root, text="Generate", command=tts, state="disabled")
