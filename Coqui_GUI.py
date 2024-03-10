@@ -99,8 +99,6 @@ def update_models(event):
     update_generate_button_state()
 
 def select_output_path():
-    # Implement your code for selecting the output path here
-    # For example, you can use filedialog.askdirectory() to open a directory dialog
     output_path = filedialog.askdirectory()
     if output_path:
         output_path_entry.delete(0, END)  # Clear the entry widget
@@ -114,15 +112,10 @@ def update_generate_button_state():
     type_selected = bool(selected_type)  # Check if a type is selected
     language_selected = bool(selected_language)  # Check if a language is selected
     model_selected = bool(model_combobox.get())  # Check if a model is selected
-    dataset_selected = bool(selected_dataset)  # Check if a dataset is selected
-    generate_button["state"] = "normal" if output_path and file_name and type_selected and language_selected and model_selected and dataset_selected else "disabled"
+    generate_button["state"] = "normal" if output_path and file_name and type_selected and language_selected and model_selected else "disabled"
 
 def tts():
     global selected_type, selected_language, selected_dataset
-
-    if not selected_type or not selected_language or not selected_dataset:
-        # Display a message or handle the case when no type, language, or dataset is selected
-        return
 
     selected_model = model_combobox.get()
     output_filename = file_name_entry.get()
@@ -130,7 +123,7 @@ def tts():
 
     # Construct the full model name
     full_model_name = f"{selected_type}/{selected_language}/{selected_dataset}/{selected_model}"
-    print(full_model_name)
+
     # Init TTS with the target model name
     tts = TTS(model_name=full_model_name)
 
@@ -180,7 +173,7 @@ language_combobox.bind("<<ComboboxSelected>>", update_models)
 # Models for the Language
 label_model = Label(master=root, text="Model", fg="#FFFFFF", font=("Arial", 18))
 label_model.place(x=250, y=363, width=100, height=20)
-models = []  # Replace with your list of models
+models = []
 model_combobox = ttk.Combobox(root, values=models, state="readonly")
 model_combobox.set(models[0] if models else "")
 model_combobox.place(x=350, y=360, width=200, height=30)
